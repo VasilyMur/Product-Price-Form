@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "name": "MacAir",
+      "price": "1400",
+      "id": 0
+    },
+    {
+      "name": "Iphone 8 Plus",
+      "price": "888",
+      "id": 1
+    },
+    {
+      "name": "Volvo s90",
+      "price": "45000",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Oysters",
+      "price": "40"
+    }
+  ]
+}
