@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import Product from './Product';
 import LoadingSpinner from './LoadingSpinner';
 import Error from './Error';
+
+import { apiLoad } from '../api';
 
 class Products extends React.Component {
 
@@ -43,17 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         loadProducts: () => {
-            const action = { type: 'LOADING_STARTS' }
-                dispatch(action);
-            axios.get('http://localhost:3001/products').then(res => {
-                const action = { type: 'LOAD_SUCCESS', products: res.data };
-                setTimeout(() => {
-                    dispatch(action);
-                }, 1000)
-            }).catch(err => {
-                const action = { type: 'LOADING_FAILS', message: err.message }
-                    dispatch(action);
-            })
+            apiLoad(dispatch);
         }
     }
 }

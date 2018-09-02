@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import { apiUpdate } from '../api';
 
 class Popup extends React.Component {
-
-
 
     render() {
         return(
@@ -39,18 +37,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateProduct: (e, name, price, id) => {
             e.preventDefault();
-            const product = {name, price, id};
-            const action = { type: 'UPDATE_STARTS' }
-            dispatch(action);
-            axios.put(`http://localhost:3001/products/${id}`, product, {
-                headers: { 'Content-Type': 'application/json' }
-            }).then(res => {
-                const action = { type: 'UPDATE_SUCCESS', product: res.data }
-                dispatch(action);
-            }).catch(err => {
-                const action = { type: 'UPDATE_FAILS', message: err.message}
-                dispatch(action);
-            });
+            apiUpdate(dispatch, name, price, id);
         }
     }
 }

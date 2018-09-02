@@ -2,23 +2,23 @@
   "products": [
     {
       "name": "Thinkpad T450s",
-      "price": "2130",
+      "price": "2122",
       "id": 0
     },
     {
-      "name": "Iphone 8 Plus",
-      "price": "920",
+      "name": "Smasung Galaxy X",
+      "price": "750",
       "id": 1
     },
     {
-      "name": "Volvo XC 90",
-      "price": "51000",
+      "name": "Mercedes C180",
+      "price": "34000",
       "id": 2
     },
     {
-      "id": 3,
-      "name": "Oysters",
-      "price": "40"
+      "name": "King Oysters",
+      "price": "44",
+      "id": 3
     }
   ]
 }
