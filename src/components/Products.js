@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Product from './Product';
+import LoadingSpinner from './LoadingSpinner';
+import Error from './Error';
 
 class Products extends React.Component {
 
@@ -13,6 +15,8 @@ class Products extends React.Component {
         return(
             <div className="products">
                 <h2>Products</h2>
+                {this.props.loading ? <LoadingSpinner/> : ''}
+                {this.props.error ? <Error message={this.props.error}/> : ''}
                 <ul>
                     {this.props.products ? this.props.products.map((res, i) => {
                         return  <Product    key={i} 
@@ -31,17 +35,24 @@ class Products extends React.Component {
 const mapStateToProps = (state) => {
     return {
         products: state.products,
+        loading: state.loading,
+        error: state.error
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         loadProducts: () => {
+            const action = { type: 'LOADING_STARTS' }
+                dispatch(action);
             axios.get('http://localhost:3001/products').then(res => {
                 const action = { type: 'LOAD_SUCCESS', products: res.data };
-                dispatch(action);
+                setTimeout(() => {
+                    dispatch(action);
+                }, 1000)
             }).catch(err => {
-                console.log(err)
+                const action = { type: 'LOADING_FAILS', message: err.message }
+                    dispatch(action);
             })
         }
     }

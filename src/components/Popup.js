@@ -39,15 +39,17 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateProduct: (e, name, price, id) => {
             e.preventDefault();
-            //console.log('updating!!', name, price, id)
             const product = {name, price, id};
+            const action = { type: 'UPDATE_STARTS' }
+            dispatch(action);
             axios.put(`http://localhost:3001/products/${id}`, product, {
                 headers: { 'Content-Type': 'application/json' }
             }).then(res => {
                 const action = { type: 'UPDATE_SUCCESS', product: res.data }
                 dispatch(action);
             }).catch(err => {
-                console.log(err)
+                const action = { type: 'UPDATE_FAILS', message: err.message}
+                dispatch(action);
             });
         }
     }
