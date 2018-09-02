@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { apiUpdate } from '../api';
+import { inputProductName, inputProductPrice } from '../actions/productActions';
 
 class Popup extends React.Component {
 
@@ -28,12 +29,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         inputName: (e) => {
-            const action = { type: 'INPUT_NAME', text: e.target.value }
-            dispatch(action)
+            dispatch(inputProductName(e));
         },
         inputPrice: (e) => {
-            const action = { type: 'INPUT_PRICE', text: e.target.value }
-            dispatch(action)
+            dispatch(inputProductPrice(e))
         },
         updateProduct: (e, name, price, id) => {
             e.preventDefault();

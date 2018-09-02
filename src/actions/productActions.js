@@ -6,6 +6,24 @@ export const UPDATE_STARTS = 'UPDATE_STARTS';
 export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
 export const UPDATE_FAILS = 'UPDATE_FAILS';
 
+export const INPUT_NAME = 'INPUT_NAME';
+export const INPUT_PRICE = 'INPUT_PRICE';
+
+
+export function inputProductName(e) {
+    return {
+        type: INPUT_NAME, 
+        text: e.target.value
+    }
+}
+
+export function inputProductPrice(e) {
+    return {
+        type: INPUT_PRICE, 
+        text: e.target.value
+    }
+}
+
 
 export function loadingStarts() {
     return {

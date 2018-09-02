@@ -1,18 +1,18 @@
 {
   "products": [
     {
-      "name": "Thinkpad T450s",
-      "price": "2122",
+      "name": "MacAir",
+      "price": "1555",
       "id": 0
     },
     {
-      "name": "Smasung Galaxy X",
-      "price": "750",
+      "name": "Iphone 8 Plus",
+      "price": "890",
       "id": 1
     },
     {
-      "name": "Mercedes C180",
-      "price": "34000",
+      "name": "BMW 5",
+      "price": "44000",
       "id": 2
     },
     {
